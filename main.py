@@ -32,11 +32,11 @@ lang = st.selectbox("Выберите язык:", ['Английский', 'Ру
 send = st.button('Преобразовать')
 
 if send:
-    with st.spinner(text='In progress'):
+    with st.spinner(text='Преобразовываем...'):
         text = recognizing(audio, lang)
-        file = open("Результат.txt", "w")
+        file = open("Результат.txt", "w", encoding='utf-8')
         file.write(text)
         file.close()
-        file = open('Результат.txt', 'r')
+        file = open('Результат.txt', 'r', encoding='utf-8')
         st.success('Успешно выполнено! Скачайте файл ниже:')
     st.download_button(data=file, label='Скачать', file_name='Результат')
